@@ -199,3 +199,11 @@ L'analisi visiva delle distribuzioni (istogrammi) e il confronto delle medie ind
 
 ### 8.Segmentazione e Simpson's Paradox
 Crea un grafico a barre che mostri il Conversion Rate per Gruppo, ma suddiviso per Device. È possibile che B vinca globalmente ma perda su Desktop?
+
+![Barplot per confrontare il CR per Gruppo](https://github.com/frbag01/ab-test/blob/main/barplot.png?raw=true)
+
+Non è presente il Simpson's Paradox.**
+- **Performance Coerente tra i Segmenti:** Il Gruppo B supera nettamente il Gruppo A in entrambi i dispositivi analizzati:
+  - Su **Desktop**, il Conversion Rate sale dal **5,87%** al **13,91%** ($+8,04\%$ punti percentuali).
+  - Su **Mobile**, il Conversion Rate sale dal **4,94%** al **14,24%** ($+9,30\%$ punti percentuali).
+- **Conclusione:** Il successo del nuovo design (Gruppo B) non è un effetto distorto dall'aggregazione dei dati (come accadrebbe nel Paradosso di Simpson), ma è un **miglioramento solido e uniforme su tutti i dispositivi**, con un impatto particolarmente marcato sugli utenti Mobile.
