@@ -185,3 +185,17 @@ Se ripetessimo questo A/B test 100 volte su campioni differenti, circa **95 volt
 
 ### 7.Analisi della Distribuzione (Engagement)
 Il nuovo design ha aumentato il tempo medio speso sul sito oppure ha creato più utenti altamente coinvolti?
+
+![istogramma per confrontare la distribuzione di Time Spent tra i due gruppi](https://github.com/frbag01/ab-test/blob/main/hist.png?raw=true)
+
+La variazione della media è trascurabile:
+
+Media Gruppo A: 241.73
+
+Media Gruppo B: 243.30
+
+L'analisi visiva delle distribuzioni (istogrammi) e il confronto delle medie indicano che il nuovo design **non ha aumentato il tempo medio speso sul sito in modo rilevante** (+1,57 unità, pari a un incremento quasi impercettibile).
+- **Omogeneità del Comportamento:** La sovrapposizione e la forma uniforme dei due istogrammi confermano che la variante B non sembrerbbe aver allungato la durata delle sessioni della media degli utenti in modo significativo.
+
+### 8.Segmentazione e Simpson's Paradox
+Crea un grafico a barre che mostri il Conversion Rate per Gruppo, ma suddiviso per Device. È possibile che B vinca globalmente ma perda su Desktop?
