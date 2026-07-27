@@ -169,4 +169,19 @@ Puoi vedere il codice principale qui: [1] [Python Script](ab.py)
 ### 5.Test di Significatività Statistica (Z-Test)
 Calcola il p-value per le conversioni tra A e B. Se il p-value è < 0.05, puoi rigettare l'ipotesi nulla?
 
+Risultati del Test Chi-quadro
+Statistica Chi2: 106.2281
+p-value: 0.0000
+Possiamo quindi **rifiutare con assoluta certezza l'ipotesi nulla ($H_0$)** di indipendenza tra i gruppi.
+- **Impatto Reale della Variante:** La differenza tra il tasso di conversione del Gruppo A ($5,4\%$) e quello del Gruppo B ($14,1\%$) **non è frutto del caso o di una fluttuazione campionaria**, ma è direttamente attribuibile alla nuova versione (Gruppo B).
 
+### 6.Intervalli di confidenza per i tassi di conversione dei due gruppi al 95%
+Calcola e visualizza (con barre d'errore) gli intervalli di confidenza per i tassi di conversione di entrambi i gruppi. C'è un overlap?
+
+Intervallo di Confidenza 95%: [7.04%, 10.30%]
+
+Se ripetessimo questo A/B test 100 volte su campioni differenti, circa **95 volte su 100 l'intervallo calcolato conterrebbe la vera differenza** del tasso di conversione tra Gruppo B e Gruppo A nella popolazione generale (stimata tra il **+7,04%** e il **+10,30%**).
+- **Assenza di Zero (Significatività Pratica):** Poiché l'intervallo si trova interamente sopra lo zero e non lo include, abbiamo un'ottima evidenza che il Gruppo B è superiore al Gruppo A.
+
+### 7.Analisi della Distribuzione (Engagement)
+Il nuovo design ha aumentato il tempo medio speso sul sito oppure ha creato più utenti altamente coinvolti?
