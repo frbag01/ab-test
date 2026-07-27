@@ -85,3 +85,78 @@ dalla query emergono le seguenti metriche di performance per i due gruppi:
 - **Aumento del Tasso di Conversione (Lift Relativo):** Il Gruppo B ha registrato un **incremento assoluto di +8,7 punti percentuali** nel Conversion Rate rispetto al gruppo di controllo A. In termini relativi, la nuova versione ha generato un **incremento delle conversioni del +161%**.
 - **Sample Ratio Mismatch (SRM):** La numerosità dei due campioni (2.500 per A e 2.475 per B) risulta bilanciata (circa 50/50), indicando che il processo di randomizzazione e assegnazione degli utenti è avvenuto correttamente.
 - **Conclusione preliminare:** Il nuovo design (Gruppo B) mostra un impatto nettamente positivo sulle conversioni rispetto alla versione originale.
+
+### 2. Engagment per Mobile
+Calcola la media di Page Views e Time Spent per gruppo, nei soli Mobile. 
+```sql
+SELECT group_test,ROUND(AVG(page_views),2) AS paginemed,ROUND(AVG(time_spent),2) AS tempmed
+FROM ab
+WHERE device='Mobile'
+GROUP BY group_test
+ORDER BY tempmed DESC
+```
+#### Risultati e Insights
+
+| Gruppo | Page Views Medie | Time Spent Medio (sec) |
+| :--- | :---: | :---: |
+| **A (Controllo)** | 7,64 | 240,37 |
+| **B (Trattamento)** | 7,44 | 243,38 |
+
+#### Key Takeaways:
+- **Tempo Trascorso (Time Spent):** Gli utenti del Gruppo B trascorrono in media **~3 secondi in più** sul sito (+1,25%) rispetto al Gruppo A (243,38 s vs 240,37 s).
+- **Pagine Viste (Page Views):** Il Gruppo B registra un numero lievemente inferiore di pagine viste medie (7,44 vs 7,64).
+- **Interpretazione:** Il **nuovo design (B) rende la navigazione più fluida e mirata nei dispositivi mobile**: gli utenti trovano ciò che cercano con meno passaggi e completano l'azione con maggior facilità.
+
+### 3. Top Performing Locations
+Trova le 2 nazioni con il conversion rate più alto nel Gruppo B. Dove ha funzionato meglio il cambiamento?
+```sql
+WITH CONVERSIONI AS(
+	SELECT loc,COUNT(*) AS conversioni 
+	FROM ab
+	WHERE group_test='B' AND conv='Yes'
+	GROUP BY loc
+),
+TOTALI AS(
+	SELECT loc, COUNT(*) AS numerosità
+	FROM ab
+	WHERE group_test='B'
+	GROUP BY loc
+)
+SELECT TOTALI.loc,ROUND((CONVERSIONI.conversioni*1.0)/TOTALI.numerosità,3) AS CR
+FROM CONVERSIONI 
+LEFT JOIN TOTALI ON TOTALI.loc=CONVERSIONI.loc
+ORDER BY CR DESC
+LIMIT 2
+```
+#### Risultati e Insights
+
+| Area Geografica (Location) | Conversion Rate (CR%) |
+| :--- | :---: |
+| **Scotland (Scozia)** | **15,1%** |
+| **Wales (Galles)** | **15,1%** |
+
+#### Key Takeaways:
+- **Performance D'Eccellenza:** **Scozia** e **Galles** rappresentano le due aree geografiche con il tasso di conversione più elevato all'interno del Gruppo B, registrando entrambe un **CR del 15,1%**.
+- **Impatto del Nuovo Design:** Il cambio di layout ha mostrato la sua massima efficacia in queste due regioni, superando la media generale del Gruppo B (14,1%).
+
+## 4. Analisi degli utenti "Power Users"
+Seleziona quanti utenti che hanno superato la media nazionale di Time Spent ma non hanno convertito. Quanti di questi sono nel Gruppo B?
+```sql
+WITH NOCONVB AS(
+SELECT user_id, time_spent, 
+       (SELECT AVG(time_spent) FROM ab) AS media_nazionale
+FROM ab
+WHERE conv = 'No'
+  AND group_test='B'	
+  AND time_spent > (SELECT AVG(time_spent) FROM ab)
+)
+
+SELECT COUNT(*) FROM NOCONVB
+```
+
+#### Risultati e Insights
+
+| **Utenti Non Convertiti con Time Spent > Media** | **1.076** |
+
+#### Key Takeaways :
+- **Elevato Coinvolgimento Senza Conversione:** Ben **1.076 utenti** del Gruppo B trascorrono sul sito più tempo della media (oltre 4 minuti e 2 secondi) senza però completare l'azione desiderata,esattamente **oltre la metà (50,5%) di tutti gli utenti non convertiti del Gruppo B**.
