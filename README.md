@@ -214,4 +214,4 @@ Per consentire un'esplorazione flessibile dei risultati dell'A/B test, è stata 
 
 A differenza del riepilogo generale (`Summary dash`), la sezione `filter dash` ricalcola istantaneamente i KPI chiave in base ai filtri applicati dall'utente ( **Device** e **Location**).
 
-📥 **[Clicca qui per scaricare la Dashboard Interattiva (ab.dash.xlsx)](https://github.com/tuo-username/tuo-repository/raw/main/ab.dash.xlsx)**
+📥 **[Clicca qui per scaricare la Dashboard Interattiva (ab.dash.xlsx)](ab.dash.xlsx)**
