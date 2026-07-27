@@ -67,8 +67,21 @@ SELECT group_test, COUNT(*) AS numerosità
 FROM ab
 GROUP BY group_test
 )
-SELECT TOTALI.group_test,ROUND((CONVERSIONI.conversioni*1.0)/TOTALI.numerosità,3) AS CR
+SELECT TOTALI.group_test,CONVERSIONI.conversioni,ROUND((CONVERSIONI.conversioni*1.0)/TOTALI.numerosità,3) AS CR
 FROM CONVERSIONI 
 LEFT JOIN TOTALI ON TOTALI.group_test=CONVERSIONI.group_test
 ```
 
+#### Risultati e Insights
+
+dalla query emergono le seguenti metriche di performance per i due gruppi:
+
+| Gruppo | Conversioni | Tasso di Conversione (CR) |
+| :--- | :---: | :---: |
+| **A (Controllo)** |  136 | **5,4%** |
+| **B (Trattamento)** |  349 | **14,1%** |
+
+#### Key Takeaways:
+- **Aumento del Tasso di Conversione (Lift Relativo):** Il Gruppo B ha registrato un **incremento assoluto di +8,7 punti percentuali** nel Conversion Rate rispetto al gruppo di controllo A. In termini relativi, la nuova versione ha generato un **incremento delle conversioni del +161%**.
+- **Sample Ratio Mismatch (SRM):** La numerosità dei due campioni (2.500 per A e 2.475 per B) risulta bilanciata (circa 50/50), indicando che il processo di randomizzazione e assegnazione degli utenti è avvenuto correttamente.
+- **Conclusione preliminare:** Il nuovo design (Gruppo B) mostra un impatto nettamente positivo sulle conversioni rispetto alla versione originale.
