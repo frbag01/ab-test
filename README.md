@@ -139,7 +139,7 @@ LIMIT 2
 - **Performance D'Eccellenza:** **Scozia** e **Galles** rappresentano le due aree geografiche con il tasso di conversione più elevato all'interno del Gruppo B, registrando entrambe un **CR del 15,1%**.
 - **Impatto del Nuovo Design:** Il cambio di layout ha mostrato la sua massima efficacia in queste due regioni, superando la media generale del Gruppo B (14,1%).
 
-## 4. Analisi degli utenti "Power Users"
+### 4. Analisi degli utenti "Power Users"
 Seleziona quanti utenti che hanno superato la media nazionale di Time Spent ma non hanno convertito. Quanti di questi sono nel Gruppo B?
 ```sql
 WITH NOCONVB AS(
@@ -160,3 +160,13 @@ SELECT COUNT(*) FROM NOCONVB
 
 #### Key Takeaways :
 - **Elevato Coinvolgimento Senza Conversione:** Ben **1.076 utenti** del Gruppo B trascorrono sul sito più tempo della media (oltre 4 minuti e 2 secondi) senza però completare l'azione desiderata,esattamente **oltre la metà (50,5%) di tutti gli utenti non convertiti del Gruppo B**.
+
+
+# PYTHON 
+
+Puoi vedere il codice principale qui: [1] [Python Script](ab.py)
+
+### 5.Test di Significatività Statistica (Z-Test)
+Calcola il p-value per le conversioni tra A e B. Se il p-value è < 0.05, puoi rigettare l'ipotesi nulla?
+
+
