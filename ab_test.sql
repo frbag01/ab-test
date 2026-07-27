@@ -20,7 +20,7 @@ SELECT group_test, COUNT(*) AS numerosità
 FROM ab
 GROUP BY group_test
 )
-SELECT TOTALI.group_test,ROUND((CONVERSIONI.conversioni*1.0)/TOTALI.numerosità,3) AS CR
+SELECT TOTALI.group_test,CONVERSIONI.conversioni,ROUND((CONVERSIONI.conversioni*1.0)/TOTALI.numerosità,3) AS CR
 FROM CONVERSIONI 
 LEFT JOIN TOTALI ON TOTALI.group_test=CONVERSIONI.group_test
 
