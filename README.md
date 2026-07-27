@@ -207,3 +207,11 @@ Non è presente il Simpson's Paradox.**
   - Su **Desktop**, il Conversion Rate sale dal **5,87%** al **13,91%** ($+8,04\%$ punti percentuali).
   - Su **Mobile**, il Conversion Rate sale dal **4,94%** al **14,24%** ($+9,30\%$ punti percentuali).
 - **Conclusione:** Il successo del nuovo design (Gruppo B) non è un effetto distorto dall'aggregazione dei dati (come accadrebbe nel Paradosso di Simpson), ma è un **miglioramento solido e uniforme su tutti i dispositivi**, con un impatto particolarmente marcato sugli utenti Mobile.
+
+### 📊 Dashboard Excel e Analisi Dinamica (`filter dash`)
+
+Per consentire un'esplorazione flessibile dei risultati dell'A/B test, è stata implementata in Excel una **Dashboard interattiva condizionata daSlicer** , basata su Tabelle Pivot collegate alla base dati originale.
+
+A differenza del riepilogo generale (`Summary dash`), la sezione `filter dash` ricalcola istantaneamente i KPI chiave in base ai filtri applicati dall'utente ( **Device** e **Location**).
+
+📥 **[Clicca qui per scaricare la Dashboard Interattiva (ab.dash.xlsx)](https://github.com/tuo-username/tuo-repository/raw/main/ab.dash.xlsx)**
