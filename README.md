@@ -156,7 +156,7 @@ SELECT COUNT(*) FROM NOCONVB
 
 #### Risultati e Insights
 
-| **Utenti Non Convertiti con Time Spent > Media** | **1.076** |
+**Utenti Non Convertiti con Time Spent > 1076** 
 
 #### Key Takeaways :
 - **Elevato Coinvolgimento Senza Conversione:** Ben **1.076 utenti** del Gruppo B trascorrono sul sito più tempo della media (oltre 4 minuti e 2 secondi) senza però completare l'azione desiderata,esattamente **oltre la metà (50,5%) di tutti gli utenti non convertiti del Gruppo B**.
@@ -210,8 +210,12 @@ Non è presente il Simpson's Paradox.**
 
 ### 📊 Dashboard Excel e Analisi Dinamica (`filter dash`)
 
-Per consentire un'esplorazione flessibile dei risultati dell'A/B test, è stata implementata in Excel una **Dashboard interattiva condizionata daSlicer** , basata su Tabelle Pivot collegate alla base dati originale.
+Per consentire un'esplorazione flessibile dei risultati dell'A/B test, è stata implementata in Excel una **Dashboard interattiva condizionata da Slicer** , basata su Tabelle Pivot collegate alla base dati originale.
 
 A differenza del riepilogo generale (`Summary dash`), la sezione `filter dash` ricalcola istantaneamente i KPI chiave in base ai filtri applicati dall'utente ( **Device** e **Location**).
 
 📥 **[Clicca qui per scaricare la Dashboard Interattiva (ab.dash.xlsx)](ab.dash.xlsx)**
+
+# Conclusioni 
+
+Il miglioramento è significativo praticamente per ogni metrica chiave, abbiamo tutte le carte in regola per affermare con ottima fiducia che con lo scenario B gli utenti sono maggiormente attratti.
