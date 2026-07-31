@@ -2,23 +2,16 @@
 
 # Task: Calcola il p-value per le conversioni tra A e B. Se il p-value è < 0.05, puoi rigettare l'ipotesi nulla?
 
-
-
 from datasets.exceptions import DefunctDatasetError
+import scipy.stats as stats
 from scipy.stats import chi2_contingency
 # Importing Libraries
 import ast
+import numpy as np
 import pandas as pd
 from datasets import load_dataset
 import matplotlib.pyplot as plt
 import seaborn as sns # Import seaborn for enhanced plotting
-
-# To load a local file, you first need to upload it to your Colab environment.
-# You can do this by clicking the folder icon on the left panel, then the upload icon.
-# Once uploaded, the file will be in the /content/ directory.
-
-# If the file 'ab_testing.csv' has been uploaded to the Colab session,
-# you can load it using its relative path.
 
 
 df = pd.read_csv('ab_testing.csv')
@@ -44,25 +37,6 @@ else:
 # Task: Calcola e visualizza (con barre d'errore) gli intervalli di confidenza per i tassi di conversione di entrambi i gruppi. C'è un overlap?
 
 
-from datasets.exceptions import DefunctDatasetError
-import scipy.stats as stats
-from scipy.stats import chi2_contingency
-# Importing Libraries
-import ast
-import numpy as np
-import pandas as pd
-from datasets import load_dataset
-import matplotlib.pyplot as plt
-import seaborn as sns # Import seaborn for enhanced plotting
-
-# To load a local file, you first need to upload it to your Colab environment.
-# You can do this by clicking the folder icon on the left panel, then the upload icon.
-# Once uploaded, the file will be in the /content/ directory.
-
-# If the file 'ab_testing.csv' has been uploaded to the Colab session,
-# you can load it using its relative path.
-
-
 df = pd.read_csv('ab_testing.csv')
 df=df.dropna(how='all')
 df.set_index('User_ID',inplace=True)
@@ -85,25 +59,6 @@ print(f"Intervallo di Confidenza 95%: [{ci_lower:.2%}, {ci_upper:.2%}]")
 # Analisi della Distribuzione (Engagement):
 
 # Task: Crea un istogramma o un KDE Plot per confrontare la distribuzione di Time Spent tra i due gruppi. Il cambiamento ha spostato la media o ha creato più utenti "alto-spendenti"?
-
-
-from datasets.exceptions import DefunctDatasetError
-import scipy.stats as stats
-from scipy.stats import chi2_contingency
-# Importing Libraries
-import ast
-import numpy as np
-import pandas as pd
-from datasets import load_dataset
-import matplotlib.pyplot as plt
-import seaborn as sns # Import seaborn for enhanced plotting
-
-# To load a local file, you first need to upload it to your Colab environment.
-# You can do this by clicking the folder icon on the left panel, then the upload icon.
-# Once uploaded, the file will be in the /content/ directory.
-
-# If the file 'ab_testing.csv' has been uploaded to the Colab session,
-# you can load it using its relative path.
 
 
 df = pd.read_csv('ab_testing.csv')
@@ -140,24 +95,6 @@ plt.show()
 
 # Task: Crea un grafico a barre che mostri il Conversion Rate per Gruppo, ma suddiviso per Device. È possibile che B vinca globalmente ma perda su Desktop? (Analisi dei bias).
 
-
-from datasets.exceptions import DefunctDatasetError
-import scipy.stats as stats
-from scipy.stats import chi2_contingency
-# Importing Libraries
-import ast
-import numpy as np
-import pandas as pd
-from datasets import load_dataset
-import matplotlib.pyplot as plt
-import seaborn as sns # Import seaborn for enhanced plotting
-
-# To load a local file, you first need to upload it to your Colab environment.
-# You can do this by clicking the folder icon on the left panel, then the upload icon.
-# Once uploaded, the file will be in the /content/ directory.
-
-# If the file 'ab_testing.csv' has been uploaded to the Colab session,
-# you can load it using its relative path.
 
 
 df = pd.read_csv('ab_testing.csv')
